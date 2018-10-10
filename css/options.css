@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  margin: 4px;
+}
+
+.main {
+  width: 80%;
+}
+
+.content-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#emoji-input {
+  width: 46px;
+  font-size: 20px;
+}
+
+#button-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
