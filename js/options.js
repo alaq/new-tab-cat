@@ -18,11 +18,11 @@ const getCustomSettings = () => {
     })
   })
   let resetButton = document.createElement('button')
-  saveButton.innerHTML = 'Reset'
-  saveButton.addEventListener('click', reset)
+  resetButton.innerHTML = 'Reset'
+  resetButton.addEventListener('click', reset)
   let resetCountButton = document.createElement('button')
-  saveButton.innerHTML = 'Reset count to 0'
-  saveButton.addEventListener('click', resetCount)
+  resetCountButton.innerHTML = 'Reset count to 0'
+  resetCountButton.addEventListener('click', resetCount)
 
   const buttonDiv = document.getElementById('button-div')
 
