@@ -9,7 +9,8 @@ chrome.storage.local.get(['opens', 'lastOpen', 'color', 'emoji'], function(data)
 })
 
 const updateOpens = newTotal => {
-  if (newTotal < 324) document.body.style['font-size'] = 20 + newTotal + 'px'
+  const newSize = 20 + newTotal * 2
+  document.body.style['font-size'] = Math.min(newSize, 324) + 'px'
   document.getElementsByClassName('cat')[0].title = newTotal + ' new tabs today'
   chrome.storage.local.set({ opens: newTotal, lastOpen: new Date().getDay() }, function() {
     console.log('opens is set to ' + newTotal)
