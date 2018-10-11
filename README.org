@@ -4,6 +4,8 @@
 
 [[https://github.com/alaq/new-tab-cat][New Tab Cat]] is a Google Chrome extension that replaces your new tab page with a cat emoji on a plain background. The cat will get bigger at every new tab you open (resets at midnight).
 
+Get it on the [[https://chrome.google.com/webstore/detail/new-tab-cat/koojepkajcfdkhggimdccjfnpcnealeb][Chrome Web Store]]!
+
 ** Features
 - A cat
 - Minimalist
