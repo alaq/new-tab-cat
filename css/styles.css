@@ -8,3 +8,8 @@ body {
   overflow-y: hidden;
   transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
+
+#svg {
+  transition: all 2.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  -webkit-transition: all 0.5s ease;
+}
