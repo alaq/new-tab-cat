@@ -3,11 +3,7 @@ chrome.storage.local.get(
     function(data) {
         window.svg = data.svg;
         document.body.style["background-color"] = data.color || "#212127";
-        if (data.svg) {
-            document.getElementsByClassName(
-                "cat"
-            )[0].innerHTML = `<img id="svg" src="assets/cat.svg" style="width: 0px" />`;
-        } else {
+        if (!data.svg) {
             document.getElementsByClassName("cat")[0].innerHTML =
                 data.emoji || "🐈";
         }
@@ -23,14 +19,16 @@ chrome.storage.local.get(
 );
 
 const updateOpens = (newTotal) => {
-    const newSize = 20 + newTotal * 2;
     if (window.svg) {
+        const svgSize = Math.max(newTotal * 7.5, 43);
         document.getElementById("svg").style["width"] = newTotal * 7.5 + "px";
     } else {
-        document.body.style["font-size"] = Math.min(newSize, 324) + "px";
+        const fontSize = 20 + newTotal * 2;
+        document.body.style["font-size"] = Math.min(fontSize, 324) + "px";
     }
     document.getElementsByClassName("cat")[0].title =
         newTotal + " new tabs today";
+    document.getElementById("svg").title = newTotal + " new tabs today";
     chrome.storage.local.set(
         { opens: newTotal, lastOpen: new Date().getDay() },
         function() {
