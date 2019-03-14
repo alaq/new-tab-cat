@@ -1,6 +1,6 @@
 const defaultColor = "#212127";
 const defaultEmoji = "🐈";
-const svgDefault = false;
+const svgDefault = true;
 
 const getCustomSettings = () => {
     let colorElement = document.getElementById("color-picker");
@@ -10,7 +10,7 @@ const getCustomSettings = () => {
     chrome.storage.local.get(["color", "emoji", "svg"], function(data) {
         colorElement.value = data.color || defaultColor;
         emojiElement.value = data.emoji || defaultEmoji;
-        svgElement.checked = data.svg || svgDefault;
+        svgElement.checked = !data.svg || !svgDefault;
     });
 
     let saveButton = document.createElement("button");
@@ -20,7 +20,7 @@ const getCustomSettings = () => {
             {
                 color: colorElement.value,
                 emoji: emojiElement.value,
-                svg: svgElement.checked,
+                svg: !svgElement.checked,
             },
             function() {
                 console.log(
@@ -29,10 +29,11 @@ const getCustomSettings = () => {
                         ", and emoji is " +
                         emojiElement.value +
                         ", and svg is " +
-                        svgElement.checked
+                        !svgElement.checked
                 );
             }
         );
+        feedback("Saved new values!");
     });
     let resetButton = document.createElement("button");
     resetButton.innerHTML = "Reset";
@@ -57,7 +58,7 @@ const reset = () => {
             let svgElement = document.getElementById("svg");
             colorElement.value = defaultColor;
             emojiElement.value = defaultEmoji;
-            svgElement.checked = svgDefault;
+            svgElement.checked = !svgDefault;
         }
     );
     feedback("Reset to default values!");

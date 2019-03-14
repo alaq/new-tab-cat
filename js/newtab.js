@@ -1,9 +1,9 @@
 chrome.storage.local.get(
     ["opens", "lastOpen", "color", "emoji", "svg"],
     function(data) {
-        window.svg = data.svg;
+        window.svg = data.svg !== false;
         document.body.style["background-color"] = data.color || "#212127";
-        if (!data.svg) {
+        if (!window.svg) {
             document.getElementsByClassName("cat")[0].innerHTML =
                 data.emoji || "🐈";
         }
